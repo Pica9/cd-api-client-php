@@ -96,14 +96,13 @@ class DefaultApi
      *
      * Fetch a document
      *
-     * @param string $token Authentication Bearer Token (required)
      * @param int $document_id Id of document to retrieve (required)
      * @return \Pica9\CampaignDrive\ApiClient\Model\Document
      * @throws \Pica9\CampaignDrive\ApiClient\ApiException on non-2xx response
      */
-    public function getDocumentById($token, $document_id)
+    public function getDocumentById($document_id)
     {
-        list($response, $statusCode, $httpHeader) = $this->getDocumentByIdWithHttpInfo ($token, $document_id);
+        list($response, $statusCode, $httpHeader) = $this->getDocumentByIdWithHttpInfo ($document_id);
         return $response; 
     }
 
@@ -113,18 +112,13 @@ class DefaultApi
      *
      * Fetch a document
      *
-     * @param string $token Authentication Bearer Token (required)
      * @param int $document_id Id of document to retrieve (required)
      * @return Array of \Pica9\CampaignDrive\ApiClient\Model\Document, HTTP status code, HTTP response headers (array of strings)
      * @throws \Pica9\CampaignDrive\ApiClient\ApiException on non-2xx response
      */
-    public function getDocumentByIdWithHttpInfo($token, $document_id)
+    public function getDocumentByIdWithHttpInfo($document_id)
     {
         
-        // verify the required parameter 'token' is set
-        if ($token === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $token when calling getDocumentById');
-        }
         // verify the required parameter 'document_id' is set
         if ($document_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $document_id when calling getDocumentById');
@@ -145,11 +139,7 @@ class DefaultApi
         $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
   
         
-        // header params
         
-        if ($token !== null) {
-            $headerParams['token'] = $this->apiClient->getSerializer()->toHeaderValue($token);
-        }
         // path params
         
         if ($document_id !== null) {
