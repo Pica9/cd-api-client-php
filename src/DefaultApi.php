@@ -159,6 +159,11 @@ class DefaultApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -196,12 +201,12 @@ class DefaultApi
     /**
      * createToken
      *
-     * Fetch a new token
+     * Fetch a new token via client credentials
      *
      * @param string $grant_type The name of the Oauth grant used. Currently only \&quot;client_credentials\&quot; is supported (required)
      * @param string $client_id The Oauth client ID (required)
      * @param string $client_secret The Oauth client secret (required)
-     * @param string $scope The scopes to associate with the token. The returned token will only be valid\nfor endpoints that require the scopes specified in this parameter. Multiple scopes\nshould be delimited by a space. (required)
+     * @param string[] $scope The scopes to associate with the token. The returned token will only be valid\nfor endpoints that require the scopes specified in this parameter. Multiple scopes\nshould be delimited by a space. (required)
      * @return \Pica9\CampaignDrive\ApiClient\Model\Token
      * @throws \Pica9\CampaignDrive\ApiClient\ApiException on non-2xx response
      */
@@ -215,12 +220,12 @@ class DefaultApi
     /**
      * createTokenWithHttpInfo
      *
-     * Fetch a new token
+     * Fetch a new token via client credentials
      *
      * @param string $grant_type The name of the Oauth grant used. Currently only \&quot;client_credentials\&quot; is supported (required)
      * @param string $client_id The Oauth client ID (required)
      * @param string $client_secret The Oauth client secret (required)
-     * @param string $scope The scopes to associate with the token. The returned token will only be valid\nfor endpoints that require the scopes specified in this parameter. Multiple scopes\nshould be delimited by a space. (required)
+     * @param string[] $scope The scopes to associate with the token. The returned token will only be valid\nfor endpoints that require the scopes specified in this parameter. Multiple scopes\nshould be delimited by a space. (required)
      * @return Array of \Pica9\CampaignDrive\ApiClient\Model\Token, HTTP status code, HTTP response headers (array of strings)
      * @throws \Pica9\CampaignDrive\ApiClient\ApiException on non-2xx response
      */
@@ -256,7 +261,7 @@ class DefaultApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/x-www-form-urlencoded'));
   
         
         
@@ -295,11 +300,6 @@ class DefaultApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -318,6 +318,10 @@ class DefaultApi
             switch ($e->getCode()) { 
             case 200:
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Pica9\CampaignDrive\ApiClient\Model\Token', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 400:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Pica9\CampaignDrive\ApiClient\Model\Error', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             case 401:
