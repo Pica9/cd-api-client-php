@@ -201,18 +201,20 @@ class DefaultApi
     /**
      * createToken
      *
-     * Fetch a new token via client credentials
+     * Fetch a new token via Oauth
      *
-     * @param string $grant_type The name of the Oauth grant used. Currently only \&quot;client_credentials\&quot; is supported (required)
+     * @param string $grant_type The name of the Oauth grant used. Currently only \&quot;client_credentials\&quot; and\n\&quot;password\&quot; is supported (required)
      * @param string $client_id The Oauth client ID (required)
      * @param string $client_secret The Oauth client secret (required)
-     * @param string[] $scope The scopes to associate with the token. The returned token will only be valid\nfor endpoints that require the scopes specified in this parameter. Multiple scopes\nshould be delimited by a space. (required)
+     * @param string[] $scope The scopes to associate with the token. The returned token will only be valid for endpoints that require the scopes specified in this parameter. Multiple scopes should be delimited by a space. (optional)
+     * @param string $username The user&#39;s email address. Only used for \&quot;password\&quot; grant (optional)
+     * @param string $password User&#39;s password. Only used for \&quot;password\&quot; grant (optional)
      * @return \Pica9\CampaignDrive\ApiClient\Model\Token
      * @throws \Pica9\CampaignDrive\ApiClient\ApiException on non-2xx response
      */
-    public function createToken($grant_type, $client_id, $client_secret, $scope)
+    public function createToken($grant_type, $client_id, $client_secret, $scope = null, $username = null, $password = null)
     {
-        list($response, $statusCode, $httpHeader) = $this->createTokenWithHttpInfo ($grant_type, $client_id, $client_secret, $scope);
+        list($response, $statusCode, $httpHeader) = $this->createTokenWithHttpInfo ($grant_type, $client_id, $client_secret, $scope, $username, $password);
         return $response; 
     }
 
@@ -220,16 +222,18 @@ class DefaultApi
     /**
      * createTokenWithHttpInfo
      *
-     * Fetch a new token via client credentials
+     * Fetch a new token via Oauth
      *
-     * @param string $grant_type The name of the Oauth grant used. Currently only \&quot;client_credentials\&quot; is supported (required)
+     * @param string $grant_type The name of the Oauth grant used. Currently only \&quot;client_credentials\&quot; and\n\&quot;password\&quot; is supported (required)
      * @param string $client_id The Oauth client ID (required)
      * @param string $client_secret The Oauth client secret (required)
-     * @param string[] $scope The scopes to associate with the token. The returned token will only be valid\nfor endpoints that require the scopes specified in this parameter. Multiple scopes\nshould be delimited by a space. (required)
+     * @param string[] $scope The scopes to associate with the token. The returned token will only be valid for endpoints that require the scopes specified in this parameter. Multiple scopes should be delimited by a space. (optional)
+     * @param string $username The user&#39;s email address. Only used for \&quot;password\&quot; grant (optional)
+     * @param string $password User&#39;s password. Only used for \&quot;password\&quot; grant (optional)
      * @return Array of \Pica9\CampaignDrive\ApiClient\Model\Token, HTTP status code, HTTP response headers (array of strings)
      * @throws \Pica9\CampaignDrive\ApiClient\ApiException on non-2xx response
      */
-    public function createTokenWithHttpInfo($grant_type, $client_id, $client_secret, $scope)
+    public function createTokenWithHttpInfo($grant_type, $client_id, $client_secret, $scope = null, $username = null, $password = null)
     {
         
         // verify the required parameter 'grant_type' is set
@@ -243,10 +247,6 @@ class DefaultApi
         // verify the required parameter 'client_secret' is set
         if ($client_secret === null) {
             throw new \InvalidArgumentException('Missing the required parameter $client_secret when calling createToken');
-        }
-        // verify the required parameter 'scope' is set
-        if ($scope === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $scope when calling createToken');
         }
   
         // parse inputs
@@ -289,6 +289,18 @@ class DefaultApi
             
             
             $formParams['scope'] = $this->apiClient->getSerializer()->toFormValue($scope);
+            
+        }// form params
+        if ($username !== null) {
+            
+            
+            $formParams['username'] = $this->apiClient->getSerializer()->toFormValue($username);
+            
+        }// form params
+        if ($password !== null) {
+            
+            
+            $formParams['password'] = $this->apiClient->getSerializer()->toFormValue($password);
             
         }
         
