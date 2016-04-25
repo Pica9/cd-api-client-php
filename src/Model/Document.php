@@ -112,7 +112,7 @@ class Document implements ArrayAccess
   
     
     /**
-      * $kind Will always be equals to \"document\"
+      * $kind Will always be equals to 'document'
       * @var string
       */
     protected $kind;
@@ -196,7 +196,7 @@ class Document implements ArrayAccess
   
     /**
      * Sets kind
-     * @param string $kind Will always be equals to \"document\"
+     * @param string $kind Will always be equals to 'document'
      * @return $this
      */
     public function setKind($kind)

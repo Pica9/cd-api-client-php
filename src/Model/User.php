@@ -92,7 +92,7 @@ class User implements ArrayAccess
   
     
     /**
-      * $kind Will always be equal to \"user\"
+      * $kind Will always be equal to 'user'
       * @var string
       */
     protected $kind;
@@ -141,7 +141,7 @@ class User implements ArrayAccess
   
     /**
      * Sets kind
-     * @param string $kind Will always be equal to \"user\"
+     * @param string $kind Will always be equal to 'user'
      * @return $this
      */
     public function setKind($kind)

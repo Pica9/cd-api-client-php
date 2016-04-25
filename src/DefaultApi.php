@@ -203,12 +203,12 @@ class DefaultApi
      *
      * Fetch a new token via Oauth
      *
-     * @param string $grant_type The name of the Oauth grant used. Currently only \&quot;client_credentials\&quot; and\n\&quot;password\&quot; is supported (required)
+     * @param string $grant_type The name of the Oauth grant used. Currently only 'client_credentials' and 'password' is supported (required)
      * @param string $client_id The Oauth client ID (required)
      * @param string $client_secret The Oauth client secret (required)
      * @param string[] $scope The scopes to associate with the token. The returned token will only be valid for endpoints that require the scopes specified in this parameter. Multiple scopes should be delimited by a space. (optional)
-     * @param string $username The user&#39;s email address. Only used for \&quot;password\&quot; grant (optional)
-     * @param string $password User&#39;s password. Only used for \&quot;password\&quot; grant (optional)
+     * @param string $username The user's email address. Only used for 'password' grant (optional)
+     * @param string $password User's password. Only used for 'password' grant (optional)
      * @return \Pica9\CampaignDrive\ApiClient\Model\Token
      * @throws \Pica9\CampaignDrive\ApiClient\ApiException on non-2xx response
      */
@@ -224,12 +224,12 @@ class DefaultApi
      *
      * Fetch a new token via Oauth
      *
-     * @param string $grant_type The name of the Oauth grant used. Currently only \&quot;client_credentials\&quot; and\n\&quot;password\&quot; is supported (required)
+     * @param string $grant_type The name of the Oauth grant used. Currently only 'client_credentials' and 'password' is supported (required)
      * @param string $client_id The Oauth client ID (required)
      * @param string $client_secret The Oauth client secret (required)
      * @param string[] $scope The scopes to associate with the token. The returned token will only be valid for endpoints that require the scopes specified in this parameter. Multiple scopes should be delimited by a space. (optional)
-     * @param string $username The user&#39;s email address. Only used for \&quot;password\&quot; grant (optional)
-     * @param string $password User&#39;s password. Only used for \&quot;password\&quot; grant (optional)
+     * @param string $username The user's email address. Only used for 'password' grant (optional)
+     * @param string $password User's password. Only used for 'password' grant (optional)
      * @return Array of \Pica9\CampaignDrive\ApiClient\Model\Token, HTTP status code, HTTP response headers (array of strings)
      * @throws \Pica9\CampaignDrive\ApiClient\ApiException on non-2xx response
      */

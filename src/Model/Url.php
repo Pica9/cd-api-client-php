@@ -88,7 +88,7 @@ class Url implements ArrayAccess
   
     
     /**
-      * $kind Will always be equal to \"url\"
+      * $kind Will always be equal to 'url'
       * @var string
       */
     protected $kind;
@@ -130,7 +130,7 @@ class Url implements ArrayAccess
   
     /**
      * Sets kind
-     * @param string $kind Will always be equal to \"url\"
+     * @param string $kind Will always be equal to 'url'
      * @return $this
      */
     public function setKind($kind)

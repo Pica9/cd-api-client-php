@@ -92,7 +92,7 @@ class Token implements ArrayAccess
   
     
     /**
-      * $kind Will always be equal to \"token\"
+      * $kind Will always be equal to 'token'
       * @var string
       */
     protected $kind;
@@ -104,7 +104,7 @@ class Token implements ArrayAccess
     protected $access_token;
     
     /**
-      * $token_type The type of token. Currently will always be \"Bearer\"
+      * $token_type The type of token. Currently will always be 'Bearer'
       * @var string
       */
     protected $token_type;
@@ -141,7 +141,7 @@ class Token implements ArrayAccess
   
     /**
      * Sets kind
-     * @param string $kind Will always be equal to \"token\"
+     * @param string $kind Will always be equal to 'token'
      * @return $this
      */
     public function setKind($kind)
@@ -183,7 +183,7 @@ class Token implements ArrayAccess
   
     /**
      * Sets token_type
-     * @param string $token_type The type of token. Currently will always be \"Bearer\"
+     * @param string $token_type The type of token. Currently will always be 'Bearer'
      * @return $this
      */
     public function setTokenType($token_type)

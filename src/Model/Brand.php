@@ -88,7 +88,7 @@ class Brand implements ArrayAccess
   
     
     /**
-      * $kind Will always be set to \"brand\"
+      * $kind Will always be set to 'brand'
       * @var string
       */
     protected $kind;
@@ -130,7 +130,7 @@ class Brand implements ArrayAccess
   
     /**
      * Sets kind
-     * @param string $kind Will always be set to \"brand\"
+     * @param string $kind Will always be set to 'brand'
      * @return $this
      */
     public function setKind($kind)
