@@ -190,7 +190,7 @@ font-style: italic;
     <div class="app-desc"> </div>
     <div class="app-desc">More information: <a href="campaign-drive.com">campaign-drive.com</a></div>
     <div class="app-desc">Contact Info: <a href="mailto:dev@pica9.com">dev@pica9.com</a></div>
-    <div class="app-desc">Version: 1.1.1</div>
+    <div class="app-desc">Version: 1.2.1</div>
     <div class="license-info"> </div>
     <div class="license-url"> </div>
   <h2>Access</h2>
@@ -404,6 +404,10 @@ font-style: italic;
   
   
   
+    <li><a href="#Template"><code>Template</code></a></li>
+  
+  
+  
     <li><a href="#Brand"><code>Brand</code></a></li>
   
   
@@ -449,6 +453,8 @@ font-style: italic;
       
       <div class="param">brand (optional)</div><div class="param-desc"><span class="param-type">Brand</span> </div>
       
+      <div class="param">template (optional)</div><div class="param-desc"><span class="param-type">Template</span> </div>
+      
       <div class="param">created_by (optional)</div><div class="param-desc"><span class="param-type">User</span> </div>
       
       <div class="param">approved_by (optional)</div><div class="param-desc"><span class="param-type">User</span> </div>
@@ -456,6 +462,28 @@ font-style: italic;
       <div class="param">download_url (optional)</div><div class="param-desc"><span class="param-type">Url</span> </div>
       
       <div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type">String</span> Date/time that document was created</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Template">Template</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+        <div class="param">kind (optional)</div><div class="param-desc"><span class="param-type">String</span> Will always be set to &#39;template&#39;</div>
+      
+      <div class="param">template_id (optional)</div><div class="param-desc"><span class="param-type">Integer</span> Unique ID of the template</div>
+      
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type">String</span> Name of template</div>
+      
+      <div class="param">description (optional)</div><div class="param-desc"><span class="param-type">String</span> Description of template</div>
+      
+      <div class="param">type (optional)</div><div class="param-desc"><span class="param-type">String</span> Type of template (Print or Email)</div>
+      
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Print</div><div class="param-enum">Email</div>
       
       
     </div>  <!-- field-items -->

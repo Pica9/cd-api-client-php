@@ -56,6 +56,7 @@ class Document implements ArrayAccess
         'name' => 'string',
         'status' => 'string',
         'brand' => '\Pica9\CampaignDrive\ApiClient\Model\Brand',
+        'template' => '\Pica9\CampaignDrive\ApiClient\Model\Template',
         'created_by' => '\Pica9\CampaignDrive\ApiClient\Model\User',
         'approved_by' => '\Pica9\CampaignDrive\ApiClient\Model\User',
         'download_url' => '\Pica9\CampaignDrive\ApiClient\Model\Url',
@@ -72,6 +73,7 @@ class Document implements ArrayAccess
         'name' => 'name',
         'status' => 'status',
         'brand' => 'brand',
+        'template' => 'template',
         'created_by' => 'created_by',
         'approved_by' => 'approved_by',
         'download_url' => 'download_url',
@@ -88,6 +90,7 @@ class Document implements ArrayAccess
         'name' => 'setName',
         'status' => 'setStatus',
         'brand' => 'setBrand',
+        'template' => 'setTemplate',
         'created_by' => 'setCreatedBy',
         'approved_by' => 'setApprovedBy',
         'download_url' => 'setDownloadUrl',
@@ -104,6 +107,7 @@ class Document implements ArrayAccess
         'name' => 'getName',
         'status' => 'getStatus',
         'brand' => 'getBrand',
+        'template' => 'getTemplate',
         'created_by' => 'getCreatedBy',
         'approved_by' => 'getApprovedBy',
         'download_url' => 'getDownloadUrl',
@@ -142,6 +146,12 @@ class Document implements ArrayAccess
     protected $brand;
     
     /**
+      * $template 
+      * @var \Pica9\CampaignDrive\ApiClient\Model\Template
+      */
+    protected $template;
+    
+    /**
       * $created_by 
       * @var \Pica9\CampaignDrive\ApiClient\Model\User
       */
@@ -178,6 +188,7 @@ class Document implements ArrayAccess
             $this->name = $data["name"];
             $this->status = $data["status"];
             $this->brand = $data["brand"];
+            $this->template = $data["template"];
             $this->created_by = $data["created_by"];
             $this->approved_by = $data["approved_by"];
             $this->download_url = $data["download_url"];
@@ -287,6 +298,27 @@ class Document implements ArrayAccess
     {
         
         $this->brand = $brand;
+        return $this;
+    }
+    
+    /**
+     * Gets template
+     * @return \Pica9\CampaignDrive\ApiClient\Model\Template
+     */
+    public function getTemplate()
+    {
+        return $this->template;
+    }
+  
+    /**
+     * Sets template
+     * @param \Pica9\CampaignDrive\ApiClient\Model\Template $template 
+     * @return $this
+     */
+    public function setTemplate($template)
+    {
+        
+        $this->template = $template;
         return $this;
     }
     
